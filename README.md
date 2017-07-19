@@ -1,5 +1,5 @@
 # React using ES6 & Webpack
-Example project for using D3 with ES6 & Webpack 3
+Example project for using React with ES6 & Webpack 3
 
 ## Getting Started
 
