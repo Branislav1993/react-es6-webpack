@@ -1,15 +1,14 @@
-
+"use strict";
 
 const webpack = require('webpack');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const path = require('path');
 
 module.exports = {
     entry: {
-        'vendor': ['d3'],
-        'app': path.resolve(__dirname,'src/app.jsx')
+        'vendor': ['react','react-dom','react-router-dom'],
+        'app': path.resolve(__dirname,'src/index.js')
     },
     output: {
         path: path.resolve(__dirname,'dist'),
@@ -18,12 +17,12 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx$/,
+                test: /\.js$/,
                 exclude: /(node_modules)/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['es2015','react']
+                        presets: ['env', 'react']
                     }
                 }
             },
@@ -37,21 +36,16 @@ module.exports = {
                         collapseWhitespace: false
                     }
                 }]
-            },
-            {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: "css-loader"
-                })
             }
         ]
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({name: "vendor", minChunks: Infinity,}),
-        new webpack.optimize.UglifyJsPlugin(),
-        new HtmlWebpackPlugin({template: './src/index.html'}),
-        new ExtractTextPlugin("styles/app.css")
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html',
+            inject: 'body'
+        }),
     ]
 
 };
