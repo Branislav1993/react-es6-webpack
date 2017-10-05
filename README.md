@@ -49,11 +49,11 @@ We have pre-configured `npm` to automatically run `webpack` so we can simply do:
 npm run build
 ```
 
-Behind the scenes this will call `webpack --config webpack.config.js `.  After, you should find that you have one new folder in your project.
+Behind the scenes this will call `webpack --config webpack.prod.js `.  After, you should find that you have one new folder in your project.
 
 * `dist` - contains all the files of your application and their dependencies.
 
-### Run the Application
+### Run the Application in a development environment 
 
 We have preconfigured the project with a simple development web server.  The simplest way to start
 this server is:
@@ -62,4 +62,4 @@ this server is:
 npm start
 ```
 
-Now browse to the app at `http://localhost:8000/index.html`.
+Now browse to the app at `http://localhost:8000/`.
