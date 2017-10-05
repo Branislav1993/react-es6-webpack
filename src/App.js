@@ -1,7 +1,7 @@
 "use strict";
 
 import React from 'react';
-import {Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 
 import ListView    from './views/ListView';
 import ItemView    from './views/ItemView';
@@ -32,15 +32,17 @@ export default class App extends React.Component {
 
     render() {
         return(
-             <div>
+             <section>
                  <Header title={this.state.title} />
                  <hr/>
-                 <Switch>
-                    {this.state.routes.map((route, i) => (<Route key={i} {...route}/>) )}
-                 </Switch>
+                 <Router>
+                     <Switch>
+                        {this.state.routes.map((route, i) => (<Route key={i} {...route}/>) )}
+                     </Switch>
+                 </Router>
                  <hr/>
                  <Footer />
-             </div>
+             </section>
         );
     }
 }
