@@ -6,6 +6,7 @@
 
 import React from 'react';
 
+import Page from './Page';
 
 export default class Item extends React.Component {
 
@@ -21,11 +22,12 @@ export default class Item extends React.Component {
 
     render() {
         return (
-            <div>
+
+            <Page>
                 {this.state.data.name} |  {this.state.data.url}
                 <hr />
                 {this.state.data.description}
-            </div>
+            </Page>
         );
     }
 }

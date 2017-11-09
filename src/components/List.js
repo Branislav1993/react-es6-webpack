@@ -7,6 +7,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import Page from './Page';
 
 export default class List extends React.Component {
 
@@ -22,9 +23,9 @@ export default class List extends React.Component {
 
     render() {
         return (
-            <div>
+            <Page>
                 {this.state.data.map((item, i) => (<Link to={`/${item.id}`} key={i}>{item.name} <br /> </Link>))}
-            </div>
+            </Page>
         );
     }
 }
